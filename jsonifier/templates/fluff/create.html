@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+              {% for category, message in messages %}
+                  <li>{{ message|safe }}</li>
+              {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="post" action="{{ url_for('fluff.create') }}" id="save-json">
+        <textarea name="json"></textarea>
+        <div>
+            <span><input type="checkbox" name="temporary" value="true" /> delete after first view</span>
+            <input type="submit" value="Submit" class="button" />
+        </div>
+    </form>
+    <div style="clear: both"></div>
+{% endblock %}

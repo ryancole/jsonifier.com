@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="/static/css/pygments_style.css" />
+{% endblock %}
+
+{% block content %}
+    <ul id="paste-nav">
+        <li><small>{{ paste._id.generation_time }}</small></li>
+        <li style="float: right"><a href="{{ url_for('paste.view_raw', id=paste._id) }}">raw</a></li>
+    </ul>
+    <div id="the-json">
+        {{ paste.json|safe }}
+    </div>
+{% endblock %}

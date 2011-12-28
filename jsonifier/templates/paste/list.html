@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+        {% for paste in pastes %}
+            <li>JSON shared on <a style="font-family: mono" href="{{ url_for('paste.view', id=paste._id) }}">{{ paste._id.generation_time }}</a></li>
+        {% else %}
+            <li>Oops. No JSON to share.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

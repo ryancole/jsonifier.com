@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h1>API Documentation</h1>
+        <p>The jsonifier API exposes a single resource that allows developers to create a JSON paste over HTTP.</p>
+        <p>To create a new JSON paste, simply send a POST request containing your JSON data, in the 'json' named parameter, to <a href="{{ url_for('api.create') }}">http://jsonifier.com{{ url_for('api.create') }}</a>. The response will be JSON if successful, otherwise it will be an HTTP error code. A successful paste's JSON response will contain a single key, named 'id', which will be the newly created paste's id.</p>
+        
+        <h1>Example</h1>
+        <p class="example">curl -d "json=%7B%22title%22%3A%22this%20is%20an%20example%20paste%22%7D" http://jsonifier.com/api/create</p>
+    </div>
+{% endblock %}
